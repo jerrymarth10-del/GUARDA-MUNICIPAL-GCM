@@ -47,7 +47,9 @@ color:#fff;
 cursor:pointer;
 }
 
-.app{display:none;}
+.app{
+display:none;
+}
 
 .sidebar{
 width:260px;
@@ -74,14 +76,9 @@ height:300px;
 margin-bottom:15px;
 border-radius:10px;
 }
-
-.pdf-btn{
-background:#facc15;
-color:#000;
-}
 </style>
-</head>
 
+</head>
 <body>
 
 <div class="login" id="login">
@@ -105,18 +102,20 @@ color:#000;
 <button onclick="abrir('portugues')">Português</button>
 <button onclick="abrir('informatica')">Informática</button>
 <button onclick="abrir('guarda')">Legislação</button>
-<button onclick="abrir('porto')">Porto Velho</button>
 <button onclick="abrir('questoes')">Questões</button>
 <button onclick="abrir('rondonia')">Rondônia</button>
 </div>
 
-<div class="main" id="conteudo"></div>
+<div class="main" id="conteudo">
+<h1>Bem-vindo</h1>
+<p>Escolha um bloco no menu.</p>
+</div>
 
 </div>
 
 <script>
 
-const senhaCorreta = "IDECAN2026";
+const senhaCorreta = "idecan2026";
 
 function entrar(){
 let senha = document.getElementById("senha").value;
@@ -137,6 +136,7 @@ function abrir(tipo){
 
 let c = document.getElementById("conteudo");
 
+// PORTUGUÊS
 if(tipo==="portugues"){
 c.innerHTML = `
 <h1>Português IDECAN</h1>
@@ -149,10 +149,10 @@ ${video("RyD9Q-0YJw0")}
 ${video("GcOghI163bg")}
 ${video("MkQ6bh7O2ew")}
 ${video("CcjYrgjZ0Qs")}
-${video("AXqFZpNzJhE")}
 `;
 }
 
+// INFORMÁTICA
 if(tipo==="informatica"){
 c.innerHTML = `
 <h1>Informática</h1>
@@ -163,12 +163,10 @@ ${video("jO-6OwZJI7I")}
 ${video("HbL09BFEwQs")}
 ${video("MDzdjeO9oas")}
 ${video("Dq3Uw0zHjaI")}
-${video("HbL09BFEwQs")}
-${video("MDzdjeO9oas")}
-${video("Dq3Uw0zHjaI")}
 `;
 }
 
+// LEGISLAÇÃO + PDFs
 if(tipo==="guarda"){
 c.innerHTML = `
 <h1>Legislação Guarda Municipal</h1>
@@ -178,34 +176,15 @@ ${video("AaqrylnyWUw")}
 ${video("Xi2PR-HE_Io")}
 ${video("t9lBSr6K0cU")}
 ${video("IkkeWP_EqW0")}
-${video("0d80mBEcamk")}
-${video("bzhsFsDfHiU")}
-${video("Xi2PR-HE_Io")}
-${video("t9lBSr6K0cU")}
 
 <h2>PDFs</h2>
-<button class="pdf-btn" onclick="abrirPDF('PDF-1.pdf')">PDF 1</button>
-<button class="pdf-btn" onclick="abrirPDF('PDF-2.pdf')">PDF 2</button>
-<button class="pdf-btn" onclick="abrirPDF('PDF-3.pdf')">PDF 3</button>
+<iframe src="assets/pdfs/PDF-1.pdf"></iframe>
+<iframe src="assets/pdfs/PDF-2.pdf"></iframe>
+<iframe src="assets/pdfs/PDF-3.pdf"></iframe>
 `;
 }
 
-if(tipo==="porto"){
-c.innerHTML = `
-<h1>Lei Porto Velho</h1>
-${video("7JG4A2CcZmg")}
-${video("HN_BIPRAMNM")}
-${video("mcnMwHDKQFs")}
-${video("t5XwDyEl8_U")}
-${video("rqkWUgfTHhQ")}
-${video("JEjq-lnT3Q8")}
-${video("fWaExzFpO88")}
-${video("3FTE_AAy3cE")}
-${video("xySr9e85ehA")}
-${video("YUn2zse0cCQ")}
-`;
-}
-
+// QUESTÕES
 if(tipo==="questoes"){
 c.innerHTML = `
 <h1>Questões Comentadas</h1>
@@ -217,11 +196,10 @@ ${video("FgPZdhOBGKM")}
 ${video("AXqFZpNzJhE")}
 ${video("8tHpFX3gg1k")}
 ${video("MkQ6bh7O2ew")}
-${video("HbL09BFEwQs")}
-${video("Dq3Uw0zHjaI")}
 `;
 }
 
+// RONDÔNIA
 if(tipo==="rondonia"){
 c.innerHTML = `
 <h1>História e Geografia de Rondônia</h1>
@@ -230,21 +208,12 @@ ${video("OQNZd6bT-h8")}
 ${video("npC4q0fP4PI")}
 ${video("5hXfdHymGlE")}
 ${video("zpTpZ3NpFic")}
-${video("_czExbWgLiA")}
-${video("OQNZd6bT-h8")}
-${video("npC4q0fP4PI")}
-${video("5hXfdHymGlE")}
-${video("zpTpZ3NpFic")}
 `;
 }
 
 }
 
-function abrirPDF(pdf){
-window.open("assets/pdfs/"+pdf, "_blank");
-}
-
 </script>
 
 </body>
-</html>
+</html
