@@ -1,445 +1,351 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>JR Apostilas | Plataforma Premium IDCAN</title>
-<style>
-:root {
-  --bg:#07101f; --bg2:#0e1730; --panel:rgba(16,28,55,.88); --line:rgba(255,255,255,.08);
-  --text:#eef4ff; --muted:#a7b7da; --gold:#f4c552; --gold2:#ffe094; --danger:#ffb5b5;
-  --shadow:0 22px 80px rgba(0,0,0,.35); --radius:28px;
-}
-* { box-sizing:border-box; }
-html { scroll-behavior:smooth; }
-body {
-  margin:0; font-family:Arial, Helvetica, sans-serif; color:var(--text);
-  background:
-    linear-gradient(rgba(7,16,31,.86), rgba(7,16,31,.92)),
-    url('https://images.unsplash.com/photo-1517260911205-8fcfd1749b74?auto=format&fit=crop&w=1400&q=80') center/cover fixed;
-}
-a { color:inherit; text-decoration:none; }
-.hidden { display:none !important; }
-.login-wrap { min-height:100vh; display:grid; place-items:center; padding:24px; }
-.login-card {
-  width:min(460px,100%); border:1px solid var(--line); border-radius:32px; box-shadow:var(--shadow);
-  background:linear-gradient(180deg, rgba(14,23,48,.96), rgba(8,14,26,.96)); padding:34px; position:relative; overflow:hidden;
-}
-.login-card::before {
-  content:''; position:absolute; inset:0;
-  background: radial-gradient(circle at top right, rgba(244,197,82,.18), transparent 30%),
-              linear-gradient(135deg, rgba(255,255,255,.03), transparent 35%);
-  pointer-events:none;
-}
-.brand-pill {
-  display:inline-flex; align-items:center; gap:10px; padding:10px 16px; background:rgba(244,197,82,.14);
-  color:var(--gold2); border:1px solid rgba(244,197,82,.25); border-radius:999px; font-weight:700; margin-bottom:18px;
-}
-.login-card h1 { margin:0 0 8px; font-size:44px; line-height:1.02; }
-.login-card p { margin:0 0 22px; color:var(--muted); line-height:1.6; }
-.label { font-size:14px; color:#dce7ff; margin:6px 0; }
-.input {
-  width:100%; padding:16px; border-radius:16px; border:1px solid rgba(255,255,255,.1);
-  background:#091224; color:#fff; outline:none; margin-bottom:12px;
-}
-.input:focus { border-color:rgba(244,197,82,.55); box-shadow:0 0 0 4px rgba(244,197,82,.12); }
-.btn { border:0; border-radius:16px; padding:16px 18px; font-weight:800; cursor:pointer; }
-.btn-primary { width:100%; background:linear-gradient(180deg,var(--gold2),var(--gold)); color:#1c1300; }
-.hint { margin-top:14px; font-size:13px; color:#8ea3d2; }
-.error { min-height:18px; color:var(--danger); font-size:13px; margin-top:10px; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JR Apostilas | Guarda Municipal IDECAN 2026</title>
+  <style>
+    :root {
+      --bg: #f4f6fb;
+      --panel: #ffffff;
+      --panel-soft: #f8fafc;
+      --text: #18243a;
+      --muted: #5f6f89;
+      --line: #e6ebf3;
+      --primary: #1f4da0;
+      --primary-2: #315fbd;
+      --gold: #f4c552;
+      --shadow: 0 16px 50px rgba(22, 34, 60, 0.10);
+      --radius: 24px;
+    }
 
-.app { display:grid; grid-template-columns:300px minmax(0,1fr); min-height:100vh; }
-.sidebar {
-  position:sticky; top:0; height:100vh; padding:22px; border-right:1px solid var(--line);
-  background:linear-gradient(180deg, rgba(13,24,49,.94), rgba(7,16,31,.96)); backdrop-filter: blur(8px);
-}
-.logo {
-  border:1px solid rgba(244,197,82,.14); border-radius:26px; box-shadow:var(--shadow);
-  background:linear-gradient(135deg, rgba(244,197,82,.12), rgba(255,255,255,.03)); padding:22px;
-}
-.logo .mini { font-size:12px; color:var(--muted); margin-bottom:8px; text-transform:uppercase; letter-spacing:.12em; }
-.logo h2 { margin:0; color:var(--gold); font-size:32px; }
-.logo p { margin:8px 0 0; color:var(--muted); font-size:13px; line-height:1.5; }
-.menu { display:grid; gap:10px; margin-top:18px; }
-.menu button {
-  width:100%; text-align:left; border:1px solid var(--line); border-radius:18px; background:rgba(255,255,255,.03);
-  color:#eef4ff; padding:16px; cursor:pointer; font-size:15px;
-}
-.menu button.active, .menu button:hover {
-  background:linear-gradient(180deg, rgba(35,58,115,.95), rgba(20,36,73,.95)); border-color:rgba(117,156,255,.28);
-}
-.side-box { margin-top:16px; border:1px solid var(--line); border-radius:20px; background:rgba(255,255,255,.03); padding:16px; }
-.side-box h3 { margin:0 0 10px; font-size:15px; }
-.side-box p { margin:0; color:var(--muted); font-size:13px; line-height:1.6; }
-.logout { margin-top:16px; width:100%; background:linear-gradient(180deg,var(--gold2),var(--gold)); color:#1c1300; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        linear-gradient(rgba(244,246,251,.92), rgba(244,246,251,.97)),
+        url('https://images.unsplash.com/photo-1517260911205-8fcfd1749b74?auto=format&fit=crop&w=1600&q=80') center/cover fixed;
+    }
+    a { color: inherit; text-decoration: none; }
+    .hidden { display: none !important; }
 
-.main { padding:24px; }
-.topbar { display:flex; justify-content:space-between; align-items:center; gap:16px; margin-bottom:18px; }
-.topbar h1 { margin:0 0 6px; font-size:30px; }
-.topbar p { margin:0; color:var(--muted); }
-.badges { display:flex; gap:10px; flex-wrap:wrap; }
-.badge { padding:10px 14px; border-radius:999px; border:1px solid var(--line); background:rgba(255,255,255,.04); font-size:13px; }
+    .login-wrap {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+    .login-card {
+      width: min(460px, 100%);
+      background: rgba(255,255,255,.95);
+      border: 1px solid var(--line);
+      border-radius: 32px;
+      box-shadow: var(--shadow);
+      padding: 34px;
+      position: relative;
+      overflow: hidden;
+    }
+    .login-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(49,95,189,.12), transparent 30%);
+      pointer-events: none;
+    }
+    .brand-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      background: #eef3ff;
+      color: var(--primary);
+      border: 1px solid #dbe6ff;
+      border-radius: 999px;
+      font-weight: 700;
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 1;
+    }
+    .login-card h1 {
+      margin: 0 0 8px;
+      font-size: 44px;
+      line-height: 1.02;
+      position: relative;
+      z-index: 1;
+    }
+    .login-card p {
+      margin: 0 0 22px;
+      color: var(--muted);
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+    }
+    .label {
+      font-size: 14px;
+      color: #31425f;
+      margin: 6px 0;
+      position: relative;
+      z-index: 1;
+    }
+    .input {
+      width: 100%;
+      padding: 16px;
+      border-radius: 16px;
+      border: 1px solid #dbe2ef;
+      background: #fff;
+      color: var(--text);
+      outline: none;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
+    }
+    .input:focus {
+      border-color: #9bb6ef;
+      box-shadow: 0 0 0 4px rgba(49,95,189,.10);
+    }
+    .btn {
+      border: 0;
+      border-radius: 16px;
+      padding: 16px 18px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .btn-primary {
+      width: 100%;
+      background: linear-gradient(180deg, var(--primary-2), var(--primary));
+      color: #fff;
+      position: relative;
+      z-index: 1;
+    }
+    .error {
+      min-height: 18px;
+      color: #d9534f;
+      font-size: 13px;
+      margin-top: 10px;
+      position: relative;
+      z-index: 1;
+    }
 
-.page { display:none; }
-.page.active { display:block; }
+    .app {
+      display: grid;
+      grid-template-columns: 300px minmax(0,1fr);
+      min-height: 100vh;
+    }
+    .sidebar {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      padding: 22px;
+      border-right: 1px solid var(--line);
+      background: rgba(255,255,255,.90);
+      backdrop-filter: blur(8px);
+    }
+    .logo {
+      border: 1px solid #dfe7f4;
+      border-radius: 26px;
+      box-shadow: var(--shadow);
+      background: linear-gradient(135deg, #ffffff, #f5f8ff);
+      padding: 22px;
+    }
+    .logo .mini {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+    .logo h2 {
+      margin: 0;
+      color: var(--primary);
+      font-size: 32px;
+    }
+    .logo p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .menu {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .menu button {
+      width: 100%;
+      text-align: left;
+      border: 1px solid #e2e9f3;
+      border-radius: 18px;
+      background: #fff;
+      color: var(--text);
+      padding: 16px;
+      cursor: pointer;
+      font-size: 15px;
+    }
+    .menu button.active,
+    .menu button:hover {
+      background: linear-gradient(180deg, #eaf1ff, #dfeaff);
+      border-color: #bfd2fb;
+      color: var(--primary);
+    }
+    .side-box {
+      margin-top: 16px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: #fff;
+      padding: 16px;
+    }
+    .side-box h3 {
+      margin: 0 0 10px;
+      font-size: 15px;
+    }
+    .side-box p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .logout {
+      margin-top: 16px;
+      width: 100%;
+      background: linear-gradient(180deg, var(--gold), #ebb836);
+      color: #3a2a00;
+    }
 
-.hero { display:grid; grid-template-columns:1.2fr .8fr; gap:18px; margin-bottom:18px; }
-.hero-card, .panel, .player, .content-card {
-  border:1px solid var(--line); border-radius:var(--radius); background:linear-gradient(180deg, var(--panel), rgba(10,18,35,.92)); box-shadow:var(--shadow);
-}
-.hero-main { padding:30px; position:relative; overflow:hidden; }
-.hero-main::after {
-  content:''; position:absolute; right:-30px; top:-20px; width:220px; height:220px; border-radius:50%;
-  background:radial-gradient(circle, rgba(244,197,82,.16), transparent 68%);
-}
-.kicker {
-  display:inline-block; padding:8px 12px; border-radius:999px; background:rgba(244,197,82,.14); color:var(--gold2);
-  border:1px solid rgba(244,197,82,.18); margin-bottom:14px; font-size:12px; font-weight:700;
-}
-.hero-main h2 { margin:0 0 10px; font-size:46px; line-height:1.02; }
-.hero-main p { margin:0; color:#d5def8; line-height:1.7; font-size:17px; }
-.hero-side { padding:22px; }
-.hero-side h3 { margin:0 0 12px; font-size:20px; }
-.hero-side ul { margin:0; padding-left:18px; display:grid; gap:10px; color:#dbe5ff; }
-.grid4 { display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:16px; margin-bottom:18px; }
-.panel { padding:22px; }
-.stat strong { display:block; font-size:34px; color:var(--gold); margin-bottom:8px; }
-.section-head { display:flex; justify-content:space-between; gap:16px; align-items:flex-end; margin:10px 0 16px; }
-.section-head h2 { margin:0 0 6px; font-size:30px; }
-.section-head p { margin:0; color:var(--muted); }
+    .main { padding: 24px; }
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+    .topbar h1 { margin: 0 0 6px; font-size: 30px; }
+    .topbar p { margin: 0; color: var(--muted); }
+    .badges { display: flex; gap: 10px; flex-wrap: wrap; }
+    .badge {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.88);
+      font-size: 13px;
+    }
 
-.player { overflow:hidden; margin-bottom:18px; }
-.player-top {
-  display:flex; justify-content:space-between; align-items:center; gap:10px; padding:14px 18px; border-bottom:1px solid var(--line); background:rgba(255,255,255,.03);
-}
-.player-title { font-size:18px; font-weight:800; }
-.player-sub { margin-top:4px; color:var(--muted); font-size:13px; }
-.player-view { position:relative; width:100%; padding-top:56.25%; background:#000; }
-.player-view iframe, .player-view .search-box { position:absolute; inset:0; width:100%; height:100%; border:0; }
-.search-box {
-  display:grid; place-items:center; padding:30px; text-align:center; background:linear-gradient(180deg, rgba(9,17,33,.95), rgba(7,12,22,.98));
-}
-.search-box h3 { margin:0 0 10px; font-size:26px; }
-.search-box p { margin:0 0 16px; color:#d1dcfb; max-width:720px; line-height:1.7; }
-.search-box a {
-  display:inline-block; padding:14px 18px; border-radius:14px; background:linear-gradient(180deg,var(--gold2),var(--gold)); color:#1c1300; font-weight:800;
-}
+    .page { display: none; }
+    .page.active { display: block; }
 
-.cards { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:16px; }
-.content-card { overflow:hidden; }
-.content-card .body { padding:18px; }
-.content-card h3 { margin:0 0 8px; font-size:18px; }
-.content-card p { margin:0; color:var(--muted); line-height:1.6; min-height:52px; }
-.actions { display:flex; gap:10px; flex-wrap:wrap; padding:0 18px 18px; }
-.btn-sm { padding:12px 14px; border-radius:14px; border:1px solid var(--line); background:rgba(255,255,255,.04); color:#fff; font-size:14px; }
-.btn-gold { background:linear-gradient(180deg,var(--gold2),var(--gold)); color:#1c1300; border:0; }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+    .hero-card,
+    .panel,
+    .player,
+    .content-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.94);
+      box-shadow: var(--shadow);
+    }
+    .hero-main {
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-main::after {
+      content: "";
+      position: absolute;
+      right: -30px;
+      top: -20px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(49,95,189,.12), transparent 68%);
+    }
+    .kicker {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #eef3ff;
+      color: var(--primary);
+      border: 1px solid #dbe6ff;
+      margin-bottom: 14px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .hero-main h2 {
+      margin: 0 0 10px;
+      font-size: 46px;
+      line-height: 1.02;
+    }
+    .hero-main p {
+      margin: 0;
+      color: #465876;
+      line-height: 1.7;
+      font-size: 17px;
+    }
+    .hero-side { padding: 22px; }
+    .hero-side h3 { margin: 0 0 12px; font-size: 20px; }
+    .hero-side ul { margin: 0; padding-left: 18px; display: grid; gap: 10px; color: #415370; }
 
-.pdf-grid { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:16px; }
-.pdf-card { padding:22px; }
-.pdf-tag {
-  display:inline-block; padding:7px 10px; border-radius:999px; background:rgba(24,192,141,.14); color:#8ff8d5;
-  border:1px solid rgba(24,192,141,.22); font-size:12px; font-weight:700; margin-bottom:12px;
-}
-.note { margin-top:12px; color:var(--muted); font-size:13px; line-height:1.6; }
+    .grid4 {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+    .panel { padding: 22px; }
+    .stat strong {
+      display: block;
+      font-size: 34px;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
 
-.modal {
-  position:fixed; inset:0; display:none; align-items:center; justify-content:center; padding:20px;
-  background:rgba(2,6,14,.78); backdrop-filter:blur(8px); z-index:9999;
-}
-.modal.open { display:flex; }
-.modal-box {
-  width:min(1180px,96vw); height:min(88vh,900px); border-radius:24px; overflow:hidden; border:1px solid var(--line);
-  background:#081121; box-shadow:var(--shadow); display:grid; grid-template-rows:auto 1fr;
-}
-.modal-top {
-  display:flex; justify-content:space-between; align-items:center; gap:10px; padding:14px 18px; background:rgba(255,255,255,.04); border-bottom:1px solid var(--line);
-}
-.modal-top h3 { margin:0; font-size:18px; }
-.modal-frame { width:100%; height:100%; border:0; background:#fff; }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: flex-end;
+      margin: 10px 0 16px;
+    }
+    .section-head h2 { margin: 0 0 6px; font-size: 30px; }
+    .section-head p { margin: 0; color: var(--muted); }
 
-@media (max-width:1080px) {
-  .app { grid-template-columns:1fr; }
-  .sidebar { position:relative; height:auto; border-right:0; border-bottom:1px solid var(--line); }
-  .hero, .grid4, .cards, .pdf-grid { grid-template-columns:1fr; }
-  .topbar, .section-head, .player-top { flex-direction:column; align-items:flex-start; }
-  .hero-main h2 { font-size:34px; }
-}
-</style>
-</head>
-<body oncontextmenu="return false">
-<div class="login-wrap" id="loginWrap">
-  <div class="login-card">
-    <div class="brand-pill">JR Apostilas</div>
-    <h1>IDCAN 2026</h1>
-    <p>Entre na sua plataforma de estudos focada em Guarda Municipal, banca IDECAN, com videoaulas, questões comentadas e PDFs visualizados dentro do site.</p>
-    <div class="label">E-mail</div>
-    <input class="input" id="email" type="email" placeholder="seuemail@exemplo.com">
-    <div class="label">Senha</div>
-    <input class="input" id="password" type="password" placeholder="Digite IDECAN2026">
-    <button class="btn btn-primary" id="loginBtn">Entrar na plataforma</button>
-    <div class="error" id="loginError"></div>
-    <div class="hint">Senha padrão deste modelo: <strong>IDECAN2026</strong></div>
-  </div>
-</div>
+    .player { overflow: hidden; margin-bottom: 18px; }
+    .player-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--line);
+      background: #f8fbff;
+    }
+    .player-title { font-size: 18px; font-weight: 800; }
+    .player-sub { margin-top: 4px; color: var(--muted); font-size: 13px; }
+    .player-view { position: relative; width: 100%; padding-top: 56.25%; background: #dfe7f4; }
+    .player-view iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 
-<div class="app hidden" id="app">
-  <aside class="sidebar">
-    <div class="logo">
-      <div class="mini">Área do aluno JR Apostilas</div>
-      <h2>JR Apostilas</h2>
-      <p>Plataforma temática • Guarda Municipal • IDCAN 2026</p>
-    </div>
-
-    <div class="menu">
-      <button class="active" data-page="inicio">Início</button>
-      <button data-page="portugues">Português</button>
-      <button data-page="informatica">Informática</button>
-      <button data-page="guarda">Guarda Municipal</button>
-      <button data-page="questoes">Questões Comentadas</button>
-      <button data-page="rondonia">História e Geografia de Rondônia</button>
-    </div>
-
-    <div class="side-box">
-      <h3>Legislação para a Guarda Municipal e muito mais</h3>
-      <p>Conteúdo direcionado para a banca IDECAN, com bloco separado de questões comentadas e materiais em PDF para leitura dentro do site.</p>
-    </div>
-
-    <button class="btn logout" id="logoutBtn">Sair</button>
-  </aside>
-
-  <main class="main">
-    <div class="topbar">
-      <div>
-        <h1>Bem-vindo à sua área de estudos</h1>
-        <p>Visual no estilo da plataforma SESAU, adaptado e melhorado para Guarda Municipal / banca IDECAN.</p>
-      </div>
-      <div class="badges">
-        <div class="badge">JR Apostilas</div>
-        <div class="badge">Senha: IDECAN2026</div>
-        <div class="badge">PDF dentro do site</div>
-      </div>
-    </div>
-
-    <section class="page active" id="inicio">
-      <div class="hero">
-        <div class="hero-card hero-main">
-          <div class="kicker">PLATAFORMA PREMIUM</div>
-          <h2>Guarda Municipal • banca IDECAN</h2>
-          <p>Videoaulas, PDFs, bloco de questões comentadas e organização por disciplina, no padrão área de membros. O conteúdo foi separado para Português, Informática, Guarda Municipal, Questões Comentadas e História/Geografia de Rondônia.</p>
-        </div>
-        <div class="hero-card hero-side">
-          <h3>Conteúdo liberado</h3>
-          <ul>
-            <li>Português com 10 aulas</li>
-            <li>Informática com 10 aulas</li>
-            <li>Guarda Municipal com 10 aulas + PDFs</li>
-            <li>Questões Comentadas com 10 aulas</li>
-            <li>História e Geografia de Rondônia com 10 aulas</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="grid4">
-        <div class="panel stat"><strong>10</strong><span>Português</span></div>
-        <div class="panel stat"><strong>10</strong><span>Informática</span></div>
-        <div class="panel stat"><strong>10</strong><span>Questões comentadas</span></div>
-        <div class="panel stat"><strong>3</strong><span>PDFs protegidos visualmente</span></div>
-      </div>
-
-      <div class="panel">
-        <strong>Atenção sobre os PDFs</strong>
-        <div class="note">Os PDFs abrem apenas dentro do site, em uma visualização interna sem botão de download na interface. Isso dificulta bastante o download, mas nenhum site consegue impedir 100% um usuário avançado de capturar o arquivo se ele tiver acesso ao conteúdo.</div>
-      </div>
-    </section>
-
-    <section class="page" id="portugues"></section>
-    <section class="page" id="informatica"></section>
-    <section class="page" id="guarda"></section>
-    <section class="page" id="questoes"></section>
-    <section class="page" id="rondonia"></section>
-  </main>
-</div>
-
-<div class="modal" id="pdfModal">
-  <div class="modal-box">
-    <div class="modal-top">
-      <h3 id="pdfTitle">PDF</h3>
-      <button class="btn btn-sm btn-gold" onclick="closePdf()">Fechar</button>
-    </div>
-    <iframe class="modal-frame" id="pdfFrame" src="" sandbox="allow-same-origin allow-scripts"></iframe>
-  </div>
-</div>
-
-<script>
-const DATA = {"portugues": {"title": "Português", "subtitle": "Banca IDECAN, foco em Guarda Municipal de Porto Velho.", "featured": {"title": "Português • banca IDECAN Porto Velho", "desc": "Primeiro vídeo fixo da área de Português, conforme você pediu.", "url": "https://www.youtube.com/watch?v=bpG4-S4eZcE", "embed": "https://www.youtube.com/embed/bpG4-S4eZcE"}, "items": [{"title": "Português • banca IDECAN Porto Velho", "desc": "Vídeo principal da área de Português.", "url": "https://www.youtube.com/watch?v=bpG4-S4eZcE", "embed": "https://www.youtube.com/embed/bpG4-S4eZcE"}, {"title": "Questões comentadas de Português IDECAN", "desc": "Treino focado no estilo da banca.", "url": "https://www.youtube.com/results?search_query=quest%C3%B5es+comentadas+Portugu%C3%AAs+IDECAN"}, {"title": "Interpretação de texto IDECAN", "desc": "Leitura e interpretação cobradas em prova.", "url": "https://www.youtube.com/results?search_query=interpreta%C3%A7%C3%A3o+de+texto+IDECAN"}, {"title": "Ortografia e acentuação IDECAN", "desc": "Revisão de ortografia, acentuação e emprego correto.", "url": "https://www.youtube.com/results?search_query=ortografia+acentua%C3%A7%C3%A3o+IDECAN"}, {"title": "Classes gramaticais IDECAN", "desc": "Substantivo, verbo, adjetivo e mais.", "url": "https://www.youtube.com/results?search_query=classes+gramaticais+IDECAN"}, {"title": "Concordância verbal e nominal", "desc": "Conteúdo clássico de prova da banca.", "url": "https://www.youtube.com/results?search_query=concord%C3%A2ncia+verbal+nominal+IDECAN"}, {"title": "Crase e regência", "desc": "Questões e teoria de crase e regência.", "url": "https://www.youtube.com/results?search_query=crase+reg%C3%AAncia+IDECAN"}, {"title": "Pontuação e reescrita", "desc": "Pontuação e reescrita de frases.", "url": "https://www.youtube.com/results?search_query=pontua%C3%A7%C3%A3o+reescrita+IDECAN"}, {"title": "Simulado de Português IDECAN", "desc": "Simulados e prática final.", "url": "https://www.youtube.com/results?search_query=simulado+portugu%C3%AAs+IDECAN"}, {"title": "Revisão final de Português IDECAN", "desc": "Reta final de preparação.", "url": "https://www.youtube.com/results?search_query=revis%C3%A3o+final+portugu%C3%AAs+IDECAN"}]}, "informatica": {"title": "Informática", "subtitle": "10 aulas com foco em concursos e questões comentadas.", "featured": {"title": "20 questões de informática • Guarda Municipal", "desc": "Questões comentadas para reforçar a prática.", "url": "https://www.youtube.com/watch?v=XdOeb5a_mjA", "embed": "https://www.youtube.com/embed/XdOeb5a_mjA"}, "items": [{"title": "20 questões de informática • Guarda Municipal", "desc": "Questões comentadas de informática.", "url": "https://www.youtube.com/watch?v=XdOeb5a_mjA", "embed": "https://www.youtube.com/embed/XdOeb5a_mjA"}, {"title": "Aulão de informática para Guarda Municipal", "desc": "Aulão geral para concursos da Guarda.", "url": "https://www.youtube.com/watch?v=0KfmdxVg9FQ", "embed": "https://www.youtube.com/embed/0KfmdxVg9FQ"}, {"title": "Windows para concursos", "desc": "Sistema operacional Windows.", "url": "https://www.youtube.com/results?search_query=windows+para+concursos+inform%C3%A1tica"}, {"title": "Word para concursos", "desc": "Microsoft Word em foco.", "url": "https://www.youtube.com/results?search_query=word+para+concursos+inform%C3%A1tica"}, {"title": "Excel para concursos", "desc": "Excel básico e intermediário.", "url": "https://www.youtube.com/results?search_query=excel+para+concursos+inform%C3%A1tica"}, {"title": "Internet e navegadores", "desc": "Navegação, pesquisa e internet.", "url": "https://www.youtube.com/results?search_query=internet+navegadores+para+concursos"}, {"title": "Segurança da informação", "desc": "Noções de segurança digital.", "url": "https://www.youtube.com/results?search_query=seguran%C3%A7a+da+informa%C3%A7%C3%A3o+para+concursos"}, {"title": "Email, nuvem e atalhos", "desc": "Correio eletrônico e nuvem.", "url": "https://www.youtube.com/results?search_query=email+nuvem+para+concursos+inform%C3%A1tica"}, {"title": "Questões comentadas de informática", "desc": "Treino no estilo concurso.", "url": "https://www.youtube.com/results?search_query=quest%C3%B5es+comentadas+inform%C3%A1tica+concursos"}, {"title": "Revisão final de informática", "desc": "Revisão completa da matéria.", "url": "https://www.youtube.com/results?search_query=revis%C3%A3o+inform%C3%A1tica+concursos"}]}, "guarda": {"title": "Guarda Municipal", "subtitle": "Legislação da Guarda Municipal e materiais em PDF.", "featured": {"title": "Estatuto das Guardas Municipais", "desc": "Lei 13.022/2014 explicada de forma objetiva.", "url": "https://www.youtube.com/watch?v=0d80mBEcamk", "embed": "https://www.youtube.com/embed/0d80mBEcamk"}, "items": [{"title": "Estatuto das Guardas Municipais", "desc": "Lei 13.022/2014 comentada.", "url": "https://www.youtube.com/watch?v=0d80mBEcamk", "embed": "https://www.youtube.com/embed/0d80mBEcamk"}, {"title": "Lei 13.022 comentada", "desc": "Conteúdo essencial da legislação.", "url": "https://www.youtube.com/watch?v=bzhsFsDfHiU", "embed": "https://www.youtube.com/embed/bzhsFsDfHiU"}, {"title": "Estatuto Geral das Guardas Municipais", "desc": "Reforço da matéria de legislação.", "url": "https://www.youtube.com/watch?v=Xi2PR-HE_Io", "embed": "https://www.youtube.com/embed/Xi2PR-HE_Io"}, {"title": "Questões comentadas de legislação", "desc": "Questões de Guarda Municipal.", "url": "https://www.youtube.com/results?search_query=quest%C3%B5es+comentadas+legisla%C3%A7%C3%A3o+guarda+municipal"}, {"title": "Atribuições da Guarda Municipal", "desc": "Noções e atribuições do cargo.", "url": "https://www.youtube.com/results?search_query=atribui%C3%A7%C3%B5es+da+guarda+municipal+aula"}, {"title": "Poder de polícia da Guarda", "desc": "Conceitos cobrados em prova.", "url": "https://www.youtube.com/results?search_query=poder+de+pol%C3%ADcia+guarda+municipal+aula"}, {"title": "Direitos e deveres da Guarda", "desc": "Base legal e funcional.", "url": "https://www.youtube.com/results?search_query=direitos+e+deveres+guarda+municipal+aula"}, {"title": "Princípios de atuação", "desc": "Atuação institucional da Guarda Municipal.", "url": "https://www.youtube.com/results?search_query=princ%C3%ADpios+de+atua%C3%A7%C3%A3o+guarda+municipal"}, {"title": "Revisão de legislação da Guarda", "desc": "Reta final de revisão.", "url": "https://www.youtube.com/results?search_query=revis%C3%A3o+legisla%C3%A7%C3%A3o+guarda+municipal"}, {"title": "Simulado Guarda Municipal", "desc": "Questões e simulado de legislação.", "url": "https://www.youtube.com/results?search_query=simulado+guarda+municipal+legisla%C3%A7%C3%A3o"}]}, "questoes": {"title": "Questões Comentadas", "subtitle": "Bloco extra dedicado a resolução de questões.", "featured": {"title": "Questões comentadas • Português IDECAN", "desc": "Treino com foco na cobrança da banca.", "url": "https://www.youtube.com/results?search_query=quest%C3%B5es+comentadas+IDECAN+portugu%C3%AAs", "embed": ""}, "items": [{"title": "Questões comentadas • Português IDECAN", "desc": "Questões de Português no estilo da banca.", "url": "https://www.youtube.com/results?search_query=quest%C3%B5es+comentadas+IDECAN+portugu%C3%AAs"}, {"title": "Questões comentadas • Informática", "desc": "Treino de informática para concursos.", "url": "https://www.youtube.com/results?search_query=quest%C3%B5es+comentadas+inform%C3%A1tica+concursos"}, {"title": "Questões comentadas • Guarda Municipal", "desc": "Questões de legislação da Guarda.", "url": "https://www.youtube.com/results?search_query=quest%C3%B5es+comentadas+guarda+municipal"}, {"title": "Questões comentadas • Rondônia", "desc": "História e Geografia de Rondônia.", "url": "https://www.youtube.com/results?search_query=quest%C3%B5es+comentadas+Rond%C3%B4nia+concurso"}, {"title": "Questões IDECAN • interpretação de texto", "desc": "Treino de leitura e compreensão.", "url": "https://www.youtube.com/results?search_query=quest%C3%B5es+IDECAN+interpreta%C3%A7%C3%A3o+de+texto"}, {"title": "Questões IDECAN • ortografia", "desc": "Treino de ortografia e acentuação.", "url": "https://www.youtube.com/results?search_query=quest%C3%B5es+IDECAN+ortografia"}, {"title": "Questões • Excel e Word", "desc": "Bloco de informática prática.", "url": "https://www.youtube.com/results?search_query=quest%C3%B5es+excel+word+concursos"}, {"title": "Questões • Lei 13.022", "desc": "Questões sobre Estatuto das Guardas.", "url": "https://www.youtube.com/results?search_query=quest%C3%B5es+lei+13.022+guarda+municipal"}, {"title": "Questões • revisão final", "desc": "Questões diversas para reta final.", "url": "https://www.youtube.com/results?search_query=quest%C3%B5es+comentadas+reta+final+concursos"}, {"title": "Questões • simulado geral", "desc": "Simulados comentados e revisão.", "url": "https://www.youtube.com/results?search_query=simulado+comentado+concursos+guarda+municipal"}]}, "rondonia": {"title": "História e Geografia de Rondônia", "subtitle": "10 aulas com foco regional para concursos em RO.", "featured": {"title": "História e Geografia de Rondônia • revisão", "desc": "Revisão final direcionada para concursos em Rondônia.", "url": "https://www.youtube.com/watch?v=_czExbWgLiA", "embed": "https://www.youtube.com/embed/_czExbWgLiA"}, "items": [{"title": "História e Geografia de Rondônia • revisão", "desc": "Revisão final direcionada para concursos.", "url": "https://www.youtube.com/watch?v=_czExbWgLiA", "embed": "https://www.youtube.com/embed/_czExbWgLiA"}, {"title": "Questões de História e Geografia de Rondônia", "desc": "Resolução de questões.", "url": "https://www.youtube.com/watch?v=PseMB-3WCVc", "embed": "https://www.youtube.com/embed/PseMB-3WCVc"}, {"title": "Formação territorial de Rondônia", "desc": "Aspectos históricos do estado.", "url": "https://www.youtube.com/results?search_query=forma%C3%A7%C3%A3o+territorial+de+Rond%C3%B4nia+concurso"}, {"title": "Geografia física de Rondônia", "desc": "Relevo, clima e hidrografia.", "url": "https://www.youtube.com/results?search_query=geografia+f%C3%ADsica+de+Rond%C3%B4nia+concurso"}, {"title": "Economia e sociedade de Rondônia", "desc": "Aspectos sociais e econômicos.", "url": "https://www.youtube.com/results?search_query=aspectos+econ%C3%B4micos+sociais+de+Rond%C3%B4nia+concurso"}, {"title": "Municípios e regionalização", "desc": "Regionalização e municípios.", "url": "https://www.youtube.com/results?search_query=munic%C3%ADpios+de+Rond%C3%B4nia+concurso"}, {"title": "População e cultura de Rondônia", "desc": "População e cultura do estado.", "url": "https://www.youtube.com/results?search_query=popula%C3%A7%C3%A3o+cultura+de+Rond%C3%B4nia+concurso"}, {"title": "Questões comentadas de Rondônia", "desc": "Questões específicas de RO.", "url": "https://www.youtube.com/results?search_query=quest%C3%B5es+comentadas+Rond%C3%B4nia+concurso"}, {"title": "Revisão final de Rondônia", "desc": "Reta final da disciplina.", "url": "https://www.youtube.com/results?search_query=revis%C3%A3o+de+Rond%C3%B4nia+para+concursos"}, {"title": "Simulado de Rondônia", "desc": "Questões e simulados.", "url": "https://www.youtube.com/results?search_query=simulado+Rond%C3%B4nia+concurso"}]}};
-const PDFS = [
-  {title:'PDF 1', src:'assets/pdfs/PDF-1.pdf#toolbar=0&navpanes=0&scrollbar=0'},
-  {title:'PDF 2', src:'assets/pdfs/PDF-2.pdf#toolbar=0&navpanes=0&scrollbar=0'},
-  {title:'PDF 3', src:'assets/pdfs/PDF-3.pdf#toolbar=0&navpanes=0&scrollbar=0'}
-];
-
-function buildSection(key) {
-  const sec = DATA[key];
-  const page = document.getElementById(key);
-  const featured = sec.featured;
-
-  let featuredHtml = '';
-  if (featured.embed) {
-    featuredHtml = `
-      <div class="player">
-        <div class="player-top">
-          <div>
-            <div class="player-title">${featured.title}</div>
-            <div class="player-sub">${featured.desc}</div>
-          </div>
-          <a class="btn btn-sm btn-gold" href="${featured.url}" target="_blank">Abrir no YouTube</a>
-        </div>
-        <div class="player-view">
-          <iframe src="${featured.embed}" allowfullscreen></iframe>
-        </div>
-      </div>`;
-  } else {
-    featuredHtml = `
-      <div class="player">
-        <div class="player-top">
-          <div>
-            <div class="player-title">${featured.title}</div>
-            <div class="player-sub">${featured.desc}</div>
-          </div>
-          <a class="btn btn-sm btn-gold" href="${featured.url}" target="_blank">Abrir busca</a>
-        </div>
-        <div class="player-view">
-          <div class="search-box">
-            <div>
-              <h3>${featured.title}</h3>
-              <p>${featured.desc}</p>
-              <a href="${featured.url}" target="_blank">Abrir busca no YouTube</a>
-            </div>
-          </div>
-        </div>
-      </div>`;
-  }
-
-  let extraPdf = '';
-  if (key === 'guarda') {
-    extraPdf = `
-      <div class="section-head" style="margin-top:20px">
-        <div>
-          <h2>PDFs da Guarda Municipal</h2>
-          <p>Visualização apenas dentro do site.</p>
-        </div>
-      </div>
-      <div class="pdf-grid">
-        ${PDFS.map((pdf, i) => `
-          <div class="content-card pdf-card">
-            <div class="pdf-tag">PDF integrado</div>
-            <h3>${pdf.title}</h3>
-            <p>Coloque seu arquivo em <strong>assets/pdfs/PDF-${i + 1}.pdf</strong>.</p>
-            <div class="actions" style="padding-left:0;padding-bottom:0;">
-              <button class="btn btn-sm btn-gold" onclick="openPdf('${pdf.title}','${pdf.src}')">Abrir dentro do site</button>
-            </div>
-          </div>
-        `).join('')}
-      </div>
-      <div class="note">Renomeie seus arquivos exatamente para: PDF-1.pdf, PDF-2.pdf e PDF-3.pdf.</div>
-    `;
-  }
-
-  page.innerHTML = `
-    <div class="section-head">
-      <div>
-        <h2>${sec.title}</h2>
-        <p>${sec.subtitle}</p>
-      </div>
-    </div>
-    ${featuredHtml}
-    <div class="cards">
-      ${sec.items.map((item, idx) => `
-        <div class="content-card">
-          <div class="body">
-            <h3>${idx + 1}. ${item.title}</h3>
-            <p>${item.desc}</p>
-          </div>
-          <div class="actions">
-            ${item.embed ? `<button class="btn btn-sm btn-gold" onclick="setFeatured('${key}', ${idx})">Abrir aqui</button>` : ``}
-            <a class="btn btn-sm" href="${item.url}" target="_blank">${item.embed ? 'YouTube' : 'Buscar no YouTube'}</a>
-          </div>
-        </div>
-      `).join('')}
-    </div>
-    ${extraPdf}
-  `;
-}
-
-function setFeatured(key, idx) {
-  DATA[key].featured = DATA[key].items[idx];
-  buildSection(key);
-  document.getElementById(key).scrollIntoView({behavior:'smooth', block:'start'});
-}
-
-function openPdf(title, src) {
-  document.getElementById('pdfTitle').textContent = title;
-  document.getElementById('pdfFrame').src = src;
-  document.getElementById('pdfModal').classList.add('open');
-}
-function closePdf() {
-  document.getElementById('pdfModal').classList.remove('open');
-  document.getElementById('pdfFrame').src = '';
-}
-document.getElementById('pdfModal').addEventListener('click', (e) => {
-  if (e.target.id === 'pdfModal') closePdf();
-});
-
-['portugues','informatica','guarda','questoes','rondonia'].forEach(buildSection);
-
-document.querySelectorAll('.menu button').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.menu button').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const target = btn.dataset.page;
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.getElementById(target).classList.add('active');
-    window.scrollTo({top:0, behavior:'smooth'});
-  });
-});
-
-const loginWrap = document.getElementById('loginWrap');
-const app = document.getElementById('app');
-const email = document.getElementById('email');
-const password = document.getElementById('password');
-const error = document.getElementById('loginError');
-
-function showApp() {
-  loginWrap.classList.add('hidden');
-  app.classList.remove('hidden');
-}
-function showLogin() {
-  app.classList.add('hidden');
-  loginWrap.classList.remove('hidden');
-}
-document.getElementById('loginBtn').addEventListener('click', () => {
-  const e = email.value.trim();
-  const p = password.value.trim();
-  if (!e) {
-    error.textContent = 'Digite um e-mail.';
-    return;
-  }
-  if (!['IDECAN2026','idecan2026'].includes(p)) {
-    error.textContent = 'Senha incorreta. Use IDECAN2026.';
-    return;
-  }
-  localStorage.setItem('jr_idcan_login', 'ok');
-  showApp();
-});
-document.getElementById('logoutBtn').addEventListener('click', () => {
-  localStorage.removeItem('jr_idcan_login');
-  showLogin();
-});
-if (localStorage.getItem('jr_idcan_login') === 'ok') showApp();
-
-document.addEventListener('keydown', (e) => {
-  if ((e.ctrlKey || e.metaKey) && ['s','p','u'].includes(e.key.toLowerCase())) e.preventDefault();
-});
-</script>
-</body>
-</html>
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 16px;
+    }
+    .content-card { overflow: hidden; }
+    .content-card .body { padding: 18px; }
+    .content-card h3 { margin: 0 0 8px; font-size: 18px; }
+    .content-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      min-height: 52px;
+    }
+    .actions { display: flex; gap: 10px; flex-wrap: wrap; padding: 0 18px 18px; }
+    .btn-sm {
+      padding: 12px 14px;
+      border-radius:
