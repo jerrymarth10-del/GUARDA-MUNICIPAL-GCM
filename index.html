@@ -348,4 +348,428 @@
     .actions { display: flex; gap: 10px; flex-wrap: wrap; padding: 0 18px 18px; }
     .btn-sm {
       padding: 12px 14px;
-      border-radius:
+      border-radius: 14px;
+      border: 1px solid #dfe7f3;
+      background: #fff;
+      color: var(--text);
+      font-size: 14px;
+    }
+    .btn-gold {
+      background: linear-gradient(180deg, var(--primary-2), var(--primary));
+      color: #fff;
+      border: 0;
+    }
+
+    .pdf-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 16px;
+    }
+    .pdf-card { padding: 22px; }
+    .pdf-tag {
+      display: inline-block;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: #eef3ff;
+      color: var(--primary);
+      border: 1px solid #dbe6ff;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .note { margin-top: 12px; color: var(--muted); font-size: 13px; line-height: 1.6; }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(9,18,36,.55);
+      backdrop-filter: blur(8px);
+      z-index: 9999;
+    }
+    .modal.open { display: flex; }
+    .modal-box {
+      width: min(1180px,96vw);
+      height: min(88vh,900px);
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #fff;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+    .modal-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 18px;
+      background: #f8fbff;
+      border-bottom: 1px solid var(--line);
+    }
+    .modal-top h3 { margin: 0; font-size: 18px; }
+    .modal-frame { width: 100%; height: 100%; border: 0; background: #fff; }
+
+    @media (max-width: 1080px) {
+      .app { grid-template-columns: 1fr; }
+      .sidebar {
+        position: relative;
+        height: auto;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .hero, .grid4, .cards, .pdf-grid { grid-template-columns: 1fr; }
+      .topbar, .section-head, .player-top { flex-direction: column; align-items: flex-start; }
+      .hero-main h2 { font-size: 34px; }
+    }
+  </style>
+</head>
+<body oncontextmenu="return false">
+  <div class="login-wrap" id="loginWrap">
+    <div class="login-card">
+      <div class="brand-pill">JR Apostilas</div>
+      <h1>IDCAN 2026</h1>
+      <p>Entre na sua plataforma de estudos focada em Guarda Municipal, banca IDECAN, com videoaulas e PDFs visualizados dentro do site.</p>
+      <div class="label">E-mail</div>
+      <input class="input" id="email" type="email" placeholder="seuemail@exemplo.com" />
+      <div class="label">Senha</div>
+      <input class="input" id="password" type="password" placeholder="Digite sua senha" />
+      <button class="btn btn-primary" id="loginBtn">Entrar na plataforma</button>
+      <div class="error" id="loginError"></div>
+    </div>
+  </div>
+
+  <div class="app hidden" id="app">
+    <aside class="sidebar">
+      <div class="logo">
+        <div class="mini">Área do aluno JR Apostilas</div>
+        <h2>JR Apostilas</h2>
+        <p>Plataforma temática • Guarda Municipal • IDCAN 2026</p>
+      </div>
+
+      <div class="menu">
+        <button class="active" data-page="inicio">Início</button>
+        <button data-page="portugues">Português</button>
+        <button data-page="informatica">Informática</button>
+        <button data-page="guarda">Legislação da Guarda</button>
+        <button data-page="portoVelho">Leis de Porto Velho</button>
+        <button data-page="questoes">Questões Comentadas</button>
+        <button data-page="rondonia">História e Geografia de Rondônia</button>
+      </div>
+
+      <div class="side-box">
+        <h3>Legislação para a Guarda Municipal e muito mais</h3>
+        <p>Conteúdo organizado por disciplina, com visualização interna dos PDFs e troca de aulas dentro do próprio site.</p>
+      </div>
+
+      <button class="btn logout" id="logoutBtn">Sair</button>
+    </aside>
+
+    <main class="main">
+      <div class="topbar">
+        <div>
+          <h1>Bem-vindo à sua área de estudos</h1>
+          <p>Modelo claro, profissional e no estilo de portal de membros.</p>
+        </div>
+        <div class="badges">
+          <div class="badge">JR Apostilas</div>
+          <div class="badge">Portal Premium</div>
+          <div class="badge">PDF dentro do site</div>
+        </div>
+      </div>
+
+      <section class="page active" id="inicio">
+        <div class="hero">
+          <div class="hero-card hero-main">
+            <div class="kicker">PLATAFORMA PREMIUM</div>
+            <h2>Guarda Municipal • banca IDECAN</h2>
+            <p>Videoaulas, PDFs e organização por disciplina no padrão de área de membros. Use o menu lateral para acessar Português, Informática, Legislação da Guarda, Leis de Porto Velho, Questões Comentadas e História/Geografia de Rondônia.</p>
+          </div>
+          <div class="hero-card hero-side">
+            <h3>Conteúdo liberado</h3>
+            <ul>
+              <li>Português com trilha de aulas</li>
+              <li>Informática</li>
+              <li>Legislação da Guarda Municipal</li>
+              <li>Leis de Porto Velho</li>
+              <li>Questões Comentadas</li>
+              <li>História e Geografia de Rondônia</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid4">
+          <div class="panel stat"><strong>6</strong><span>Blocos principais</span></div>
+          <div class="panel stat"><strong>3</strong><span>PDFs internos</span></div>
+          <div class="panel stat"><strong>100%</strong><span>Visual claro</span></div>
+          <div class="panel stat"><strong>1</strong><span>Index único</span></div>
+        </div>
+
+        <div class="panel">
+          <strong>Atenção sobre os PDFs</strong>
+          <div class="note">Os PDFs abrem em visualização interna, sem botão de download na interface. Isso dificulta bastante o download, mas não existe bloqueio 100% absoluto para usuário avançado.</div>
+        </div>
+      </section>
+
+      <section class="page" id="portugues"></section>
+      <section class="page" id="informatica"></section>
+      <section class="page" id="guarda"></section>
+      <section class="page" id="portoVelho"></section>
+      <section class="page" id="questoes"></section>
+      <section class="page" id="rondonia"></section>
+    </main>
+  </div>
+
+  <div class="modal" id="pdfModal">
+    <div class="modal-box">
+      <div class="modal-top">
+        <h3 id="pdfTitle">PDF</h3>
+        <button class="btn btn-sm btn-gold" onclick="closePdf()">Fechar</button>
+      </div>
+      <iframe class="modal-frame" id="pdfFrame" src="" sandbox="allow-same-origin allow-scripts"></iframe>
+    </div>
+  </div>
+
+  <script>
+    const PASSWORD = 'IDECAN2026';
+
+    const DATA = {
+      portugues: {
+        title: 'Português',
+        subtitle: 'O primeiro vídeo já fica fixo no topo, como você pediu.',
+        featured: {
+          title: 'Português • banca IDECAN Porto Velho',
+          desc: 'Primeiro vídeo fixo da área de Português.',
+          url: 'https://www.youtube.com/watch?v=bpG4-S4eZcE',
+          embed: 'https://www.youtube.com/embed/bpG4-S4eZcE'
+        },
+        items: [
+          { title: 'Português • banca IDECAN Porto Velho', desc: 'Vídeo principal da área de Português.', url: 'https://www.youtube.com/watch?v=bpG4-S4eZcE', embed: 'https://www.youtube.com/embed/bpG4-S4eZcE' },
+          { title: 'Português aula 2', desc: 'Cole aqui o link real do vídeo 2.', url: '', embed: '' },
+          { title: 'Português aula 3', desc: 'Cole aqui o link real do vídeo 3.', url: '', embed: '' },
+          { title: 'Português aula 4', desc: 'Cole aqui o link real do vídeo 4.', url: '', embed: '' },
+          { title: 'Português aula 5', desc: 'Cole aqui o link real do vídeo 5.', url: '', embed: '' }
+        ]
+      },
+      informatica: {
+        title: 'Informática',
+        subtitle: 'Bloco de informática com aulas embutidas.',
+        featured: { title: 'Informática aula 1', desc: 'Cole aqui o primeiro vídeo real.', url: '', embed: '' },
+        items: [
+          { title: 'Informática aula 1', desc: 'Cole aqui o primeiro vídeo real.', url: '', embed: '' },
+          { title: 'Informática aula 2', desc: 'Cole aqui o segundo vídeo real.', url: '', embed: '' },
+          { title: 'Informática aula 3', desc: 'Cole aqui o terceiro vídeo real.', url: '', embed: '' }
+        ]
+      },
+      guarda: {
+        title: 'Legislação da Guarda',
+        subtitle: 'Aulas de legislação da Guarda Municipal + PDFs.',
+        featured: { title: 'Legislação da Guarda aula 1', desc: 'Cole aqui o primeiro vídeo real.', url: '', embed: '' },
+        items: [
+          { title: 'Legislação da Guarda aula 1', desc: 'Cole aqui o primeiro vídeo real.', url: '', embed: '' },
+          { title: 'Legislação da Guarda aula 2', desc: 'Cole aqui o segundo vídeo real.', url: '', embed: '' },
+          { title: 'Legislação da Guarda aula 3', desc: 'Cole aqui o terceiro vídeo real.', url: '', embed: '' }
+        ]
+      },
+      portoVelho: {
+        title: 'Leis de Porto Velho',
+        subtitle: 'Bloco específico para legislação local de Porto Velho.',
+        featured: { title: 'Leis de Porto Velho aula 1', desc: 'Cole aqui o primeiro vídeo real.', url: '', embed: '' },
+        items: [
+          { title: 'Leis de Porto Velho aula 1', desc: 'Cole aqui o primeiro vídeo real.', url: '', embed: '' },
+          { title: 'Leis de Porto Velho aula 2', desc: 'Cole aqui o segundo vídeo real.', url: '', embed: '' },
+          { title: 'Leis de Porto Velho aula 3', desc: 'Cole aqui o terceiro vídeo real.', url: '', embed: '' }
+        ]
+      },
+      questoes: {
+        title: 'Questões Comentadas',
+        subtitle: 'Bloco extra dedicado a resolução de questões.',
+        featured: { title: 'Questões Comentadas aula 1', desc: 'Cole aqui o primeiro vídeo real.', url: '', embed: '' },
+        items: [
+          { title: 'Questões Comentadas aula 1', desc: 'Cole aqui o primeiro vídeo real.', url: '', embed: '' },
+          { title: 'Questões Comentadas aula 2', desc: 'Cole aqui o segundo vídeo real.', url: '', embed: '' },
+          { title: 'Questões Comentadas aula 3', desc: 'Cole aqui o terceiro vídeo real.', url: '', embed: '' }
+        ]
+      },
+      rondonia: {
+        title: 'História e Geografia de Rondônia',
+        subtitle: 'Bloco regional com aulas e revisão.',
+        featured: { title: 'Rondônia aula 1', desc: 'Cole aqui o primeiro vídeo real.', url: '', embed: '' },
+        items: [
+          { title: 'Rondônia aula 1', desc: 'Cole aqui o primeiro vídeo real.', url: '', embed: '' },
+          { title: 'Rondônia aula 2', desc: 'Cole aqui o segundo vídeo real.', url: '', embed: '' },
+          { title: 'Rondônia aula 3', desc: 'Cole aqui o terceiro vídeo real.', url: '', embed: '' }
+        ]
+      }
+    };
+
+    const PDFS = [
+      { title: 'PDF 1', src: 'assets/pdfs/PDF-1.pdf#toolbar=0&navpanes=0&scrollbar=0' },
+      { title: 'PDF 2', src: 'assets/pdfs/PDF-2.pdf#toolbar=0&navpanes=0&scrollbar=0' },
+      { title: 'PDF 3', src: 'assets/pdfs/PDF-3.pdf#toolbar=0&navpanes=0&scrollbar=0' }
+    ];
+
+    function renderFeatured(featured) {
+      if (featured.embed) {
+        return `
+          <div class="player">
+            <div class="player-top">
+              <div>
+                <div class="player-title">${featured.title}</div>
+                <div class="player-sub">${featured.desc}</div>
+              </div>
+            </div>
+            <div class="player-view">
+              <iframe src="${featured.embed}" allowfullscreen></iframe>
+            </div>
+          </div>`;
+      }
+
+      return `
+        <div class="player">
+          <div class="player-top">
+            <div>
+              <div class="player-title">${featured.title}</div>
+              <div class="player-sub">${featured.desc}</div>
+            </div>
+          </div>
+          <div style="padding:28px;color:#5f6f89;">Substitua este item por um link real de vídeo.</div>
+        </div>`;
+    }
+
+    function buildSection(key) {
+      const sec = DATA[key];
+      const page = document.getElementById(key);
+      let extraPdf = '';
+
+      if (key === 'guarda') {
+        extraPdf = `
+          <div class="section-head" style="margin-top:20px">
+            <div>
+              <h2>PDFs da Guarda Municipal</h2>
+              <p>Visualização apenas dentro do site.</p>
+            </div>
+          </div>
+          <div class="pdf-grid">
+            ${PDFS.map((pdf, i) => `
+              <div class="content-card pdf-card">
+                <div class="pdf-tag">PDF integrado</div>
+                <h3>${pdf.title}</h3>
+                <p>Coloque seu arquivo em <strong>assets/pdfs/PDF-${i + 1}.pdf</strong>.</p>
+                <div class="actions" style="padding-left:0;padding-bottom:0;">
+                  <button class="btn btn-sm btn-gold" onclick="openPdf('${pdf.title}','${pdf.src}')">Abrir dentro do site</button>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+          <div class="note">Renomeie seus arquivos exatamente para: PDF-1.pdf, PDF-2.pdf e PDF-3.pdf.</div>
+        `;
+      }
+
+      page.innerHTML = `
+        <div class="section-head">
+          <div>
+            <h2>${sec.title}</h2>
+            <p>${sec.subtitle}</p>
+          </div>
+        </div>
+        ${renderFeatured(sec.featured)}
+        <div class="cards">
+          ${sec.items.map((item, idx) => `
+            <div class="content-card">
+              <div class="body">
+                <h3>${idx + 1}. ${item.title}</h3>
+                <p>${item.desc}</p>
+              </div>
+              <div class="actions">
+                ${item.embed ? `<button class="btn btn-sm btn-gold" onclick="setFeatured('${key}', ${idx})">Abrir aqui</button>` : ''}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+        ${extraPdf}
+      `;
+    }
+
+    function setFeatured(key, idx) {
+      DATA[key].featured = DATA[key].items[idx];
+      buildSection(key);
+      document.getElementById(key).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function openPdf(title, src) {
+      document.getElementById('pdfTitle').textContent = title;
+      document.getElementById('pdfFrame').src = src;
+      document.getElementById('pdfModal').classList.add('open');
+    }
+
+    function closePdf() {
+      document.getElementById('pdfModal').classList.remove('open');
+      document.getElementById('pdfFrame').src = '';
+    }
+
+    document.getElementById('pdfModal').addEventListener('click', (e) => {
+      if (e.target.id === 'pdfModal') closePdf();
+    });
+
+    ['portugues', 'informatica', 'guarda', 'portoVelho', 'questoes', 'rondonia'].forEach(buildSection);
+
+    document.querySelectorAll('.menu button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.menu button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const target = btn.dataset.page;
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        document.getElementById(target).classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+
+    const loginWrap = document.getElementById('loginWrap');
+    const app = document.getElementById('app');
+    const email = document.getElementById('email');
+    const password = document.getElementById('password');
+    const error = document.getElementById('loginError');
+
+    function showApp() {
+      loginWrap.classList.add('hidden');
+      app.classList.remove('hidden');
+    }
+
+    function showLogin() {
+      app.classList.add('hidden');
+      loginWrap.classList.remove('hidden');
+    }
+
+    document.getElementById('loginBtn').addEventListener('click', () => {
+      const e = email.value.trim();
+      const p = password.value.trim();
+      if (!e) {
+        error.textContent = 'Digite um e-mail.';
+        return;
+      }
+      if (p !== PASSWORD) {
+        error.textContent = 'Senha incorreta.';
+        return;
+      }
+      localStorage.setItem('jr_idcan_login', 'ok');
+      showApp();
+    });
+
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+      localStorage.removeItem('jr_idcan_login');
+      showLogin();
+    });
+
+    if (localStorage.getItem('jr_idcan_login') === 'ok') showApp();
+
+    document.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && ['s','p','u'].includes(e.key.toLowerCase())) e.preventDefault();
+    });
+  </script>
+</body>
+</html>
